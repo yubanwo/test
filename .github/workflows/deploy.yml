@@ -29,6 +29,9 @@ jobs:
       # Step 3：安装依赖
       - name: Install dependencies
         run: npm install
+        
+      - name: Generate Hexo static files
+        run: npx hexo generate
 
       # Step 4：生成静态文件并部署到 gh-pages 分支
       - name: Deploy to gh-pages
