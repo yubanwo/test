@@ -18,7 +18,10 @@ jobs:
 
     steps:
       # Step 1：检出仓库源码
-      - uses: actions/checkout@v4
+      - name: Checkout repository (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       # Step 2：设置 Node.js 环境
       - name: Setup Node.js
@@ -29,7 +32,7 @@ jobs:
       # Step 3：安装依赖
       - name: Install dependencies
         run: npm install
-        
+
       - name: Generate Hexo static files
         run: npx hexo generate
 
